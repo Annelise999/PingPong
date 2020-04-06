@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">PP</string>
+    <string name="action_settings">Settings</string>
+    <string name="new_match">NEW MATCH</string>
+    <string name="previous_match">PREVIOUS MATCHES</string>
+    <string name="title_activity_score">Score</string>
+    <string name="service">SERVICE</string>
+    <string name="score">SCORE</string>
+    <string name="echange">ECHANGE</string>
+    <string name="manche1">M1</string>
+    <string name="manche2">M2</string>
+    <string name="manche3">M3</string>
+    <string name="let">LET</string>
+    <string name="ace">ACE</string>
+    <string name="title_activity_recapmatch">recapmatch</string>
+    <string name="title_activity_choixjoueur">choixjoueur</string>
+    <string name="prev_matches">Previous Matches</string>
+    <string name="player_1">Joueur 1</string>
+    <string name="player_2">Joueur 2</string>
+    <string name="service2">Service à :</string>
+    <string name="go">C\'est parti!</string>
+    <string name="Manche1">M1</string>
+    <string name="Manche2">M2</string>
+    <string name="Manche3">M3</string>
+    <string name="gagne">Gagne</string>
+    <string name="Perd">PERD</string>
+    <string name="faute">FAUTE</string>
+    <string name="fin">FIN</string>
+    <string name="retour">RETOUR</string>
+    <string name="match">MATCH</string>
+    <string name="duree">DUREE</string>
+    <string name="gagnant">GAGNANT:</string>
+    <string name="Statistiques">STATISTIQUES</string>
+    <string name="points">POINTS</string>
+    <string name="aces">ACES</string>
+    <string name="fautes">FAUTES</string>
+    <string name="manches">MANCHES</string>
+    <string name="duree2">DUREE :</string>
+    <string name="title_activity_menu2">Menu2</string>
+    <string name="title_activity_match">match</string>
+    <string name="title_activity_previousmatches">previousmatches</string>
+</resources>
+
