@@ -20,9 +20,10 @@ import android.widget.TextView;
 public class recapmatch extends AppCompatActivity {
 
     private Handler handler;
-    TextView nom_gagant, temps_match, afficher_joueur1, afficher_joueur2, points_j1, points_j2, aces_j1, aces_j2, let_j1, let_j2, manches_j1, manches_j2, fautes_j1, fautes_j2;
+    TextView nom_gagnant, temps_match, afficher_joueur1, afficher_joueur2, points_j1, points_j2, aces_j1, aces_j2, let_j1, let_j2, manches_j1, manches_j2, fautes_j1, fautes_j2;
     Button retour ;
     ImageButton local, gallery;
+    Match current;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +32,33 @@ public class recapmatch extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        current = (Match) getIntent().getSerializableExtra("Match");
+
         //textview:
-        nom_gagant = findViewById(R.id.nom_gagnant);
+        nom_gagnant = findViewById(R.id.nom_gagnant);
+        nom_gagnant.setText(current.getGagnant());
         temps_match = findViewById(R.id.temps_match);
+        temps_match.setText(String.valueOf(current.getBalle()));
         afficher_joueur1 = findViewById(R.id.afficher_joueur1);
+        afficher_joueur1.setText(current.getJoueur1());
         afficher_joueur2 = findViewById(R.id.afficher_joueur2);
+        afficher_joueur2.setText(current.getJoueur2());
         points_j1 = findViewById(R.id.points_joueur1);
+        points_j1.setText(String.valueOf(current.getPts_j1()));
         points_j2 = findViewById(R.id.points_joueur2);
+        points_j2.setText(String.valueOf(current.getPts_j2()));
         aces_j1 = findViewById(R.id.ace_joueur1);
+        aces_j1.setText(String.valueOf(current.getAces_j1()));
         aces_j2 = findViewById(R.id.ace_joueur2);
+        aces_j2.setText(String.valueOf(current.getAces_j2()));
         manches_j1 = findViewById(R.id.manches_joueur1);
+        manches_j1.setText(String.valueOf(current.getManches_j1()));
         manches_j2 = findViewById(R.id.manches_joueur2);
+        manches_j2.setText(String.valueOf(current.getManches_j2()));
         fautes_j1 = findViewById(R.id.fautes_joueur1);
+        fautes_j1.setText(String.valueOf(current.getFautes_j1()));
         fautes_j2 = findViewById(R.id.fautes_joueur2);
+        fautes_j2.setText(String.valueOf(current.getFautes_j2()));
 
 
         //Button

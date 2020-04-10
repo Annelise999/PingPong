@@ -7,6 +7,7 @@ public class Match implements Serializable {
     private long id;
     private String joueur1;
     private String joueur2;
+    private String gagnant;
     private int joueur_service;
     private int balle;
     private int aces_j1;
@@ -17,6 +18,11 @@ public class Match implements Serializable {
     private int let_j2;
     private int manches_j1;
     private int manches_j2;
+
+    private int current_manche;
+
+    private int pts_j1;
+    private int pts_j2;
     private int pts_manche1_j1;
     private int pts_manche1_j2;
     private int pts_manche2_j1;
@@ -29,8 +35,11 @@ public class Match implements Serializable {
     public Match(){
         super();
         id = 0;
+        current_manche=0;
         joueur1 = "";
         joueur2 = "";
+        gagnant= "";
+        joueur_service=1;
         balle = 0;
         aces_j1= 0;
         aces_j2= 0;
@@ -46,17 +55,41 @@ public class Match implements Serializable {
         pts_manche2_j2=0;
         pts_manche3_j1=0;
         pts_manche3_j2=0;
-        joueur_service=1;
+
+        pts_j1=0;
+        pts_j2=0;
     }
+
+
 
     public Match(String joueur1, String joueur2, int joueur_service){
         super();
+        balle= 0;
+        aces_j1= 0;
+        aces_j2= 0;
+        fautes_j1=0;
+        fautes_j2=0;
+        let_j1=0;
+        let_j2=0;
+        manches_j1=0;
+        manches_j2=0;
+        current_manche=1;
+        pts_manche1_j1=0;
+        pts_manche1_j2=0;
+        pts_manche2_j1=0;
+        pts_manche2_j2=0;
+        pts_manche3_j1=0;
+        pts_manche3_j2=0;
+        pts_j1=0;
+        pts_j2=0;
+        gagnant = "";
+
         this.joueur1 = joueur1;
         this.joueur2 = joueur2;
         this.joueur_service= joueur_service;
     }
 
-    public Match(long id, String joueur1, String joueur2, int balle, int aces_j1, int aces_j2, int fautes_j1, int fautes_j2, int let_j1, int let_j2, int manches_j1, int manches_j2, int pts_manche1_j1, int pts_manche1_j2, int pts_manche2_j1, int pts_manche2_j2, int pts_manche3_j1, int pts_manche3_j2, int joueur_service) {
+    public Match(String gagnant, int current_manche, int pts_j1, int pts_j2, long id, String joueur1, String joueur2, int balle, int aces_j1, int aces_j2, int fautes_j1, int fautes_j2, int let_j1, int let_j2, int manches_j1, int manches_j2, int pts_manche1_j1, int pts_manche1_j2, int pts_manche2_j1, int pts_manche2_j2, int pts_manche3_j1, int pts_manche3_j2, int joueur_service) {
         super();
         this.id = id;
         this.joueur1 = joueur1;
@@ -77,9 +110,93 @@ public class Match implements Serializable {
         this.pts_manche3_j1= pts_manche3_j1;
         this.pts_manche3_j2= pts_manche3_j2;
         this.joueur_service= joueur_service;
+        this.pts_j1= pts_j1;
+        this.pts_j2= pts_j2;
+        this.current_manche = current_manche;
+        this.gagnant= gagnant;
     }
 
+    public void changementServeur()
+    {
+        if (joueur_service == 1)
+        {
+           joueur_service=2;
+        }
+        else if (joueur_service == 2)
+        {
+            joueur_service=1;
+        }
+    }
 
+    public void CheckMancheAndWinner(){
+
+        if (manches_j1 < 2 && manches_j2 < 2) {
+            if (pts_j1 > 10 ) {
+                switch (current_manche) {
+                    case 1:
+                        pts_manche1_j1= pts_j1;
+                        manches_j1 ++;
+                        pts_manche1_j2= pts_j2;
+                        pts_j1= 0;
+                        pts_j2=0;
+
+                        break;
+                    case 2:
+                        pts_manche2_j1= pts_j1;
+                        manches_j1 ++;
+                        pts_manche2_j2= pts_j2;
+                        pts_j1= 0;
+                        pts_j2=0;
+
+                    case 3:
+                        pts_manche3_j1= pts_j1;
+                        manches_j1 ++;
+                        pts_manche3_j2= pts_j2;
+                        pts_j1= 0;
+                        pts_j2=0;
+
+                }
+                current_manche += 1;
+
+            }
+            else if (pts_j2 >10)
+            {
+                switch (current_manche) {
+                    case 1:
+                        pts_manche1_j1= pts_j1;
+                        manches_j2 ++;
+                        pts_manche1_j2= pts_j2;
+                        pts_j1= 0;
+                        pts_j2=0;
+                        break;
+                    case 2:
+                        pts_manche2_j1= pts_j1;
+                        manches_j2 ++;
+                        pts_manche2_j2= pts_j2;
+                        pts_j1= 0;
+                        pts_j2=0;
+                    case 3:
+                        pts_manche3_j1= pts_j1;
+                        manches_j2 ++;
+                        pts_manche3_j2= pts_j2;
+                        pts_j1= 0;
+                        pts_j2=0;
+                }
+                current_manche += 1;
+            }
+        }
+        else {
+            if (manches_j1 == 2)
+            {
+                gagnant= joueur1;
+            }
+            else if (manches_j2==2)
+            {
+                gagnant= joueur2;
+            }
+        }
+
+    }
 
     public long getId() {
         return id;
@@ -248,4 +365,37 @@ public class Match implements Serializable {
     public void setLng(float lng) {
         this.lng = lng;
     }
+
+    public int getPts_j1() {
+        return pts_j1;
+    }
+
+    public void setPts_j1() {
+        this.pts_j1 +=1;
+    }
+
+    public int getPts_j2() {
+        return pts_j2;
+    }
+
+    public void setPts_j2() {
+        this.pts_j2 += 1;
+    }
+
+    public int getCurrent_manche() {
+        return current_manche;
+    }
+
+    public void setCurrent_manche(int current_manche) {
+        this.current_manche = current_manche;
+    }
+
+    public String getGagnant() {
+        return gagnant;
+    }
+
+    public void setGagnant(String gagnant) {
+        this.gagnant = gagnant;
+    }
+
 }
