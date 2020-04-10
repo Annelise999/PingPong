@@ -265,13 +265,6 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/return_button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/retour" />
-
             <ImageButton
                 android:id="@+id/local_button"
                 android:layout_width="match_parent"
@@ -285,6 +278,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+            <Button
+                android:id="@+id/return_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="myClickHandlerRetour"
+                android:text="@string/retour" />
         </LinearLayout>
 
     </LinearLayout>

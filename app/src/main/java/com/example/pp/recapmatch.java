@@ -71,7 +71,7 @@ public class recapmatch extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.previous_matches) {
+        if (id == R.id.previous_match) {
             Intent intent= new Intent (this, previousmatches.class);
             startActivity(intent);
 
@@ -85,5 +85,13 @@ public class recapmatch extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void myClickHandlerRetour(View view){
+        if (view.getId() == R.id.return_button) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+    }
+
 
 }

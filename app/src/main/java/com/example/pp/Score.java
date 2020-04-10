@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ public class Score extends AppCompatActivity {
     TextView name_joueur1, name_joueur2, name_j1, name_j2, score_j1_m1, score_j1_m2, score_j1_m3, score_j2_m1, score_j2_m2, score_j3_m3;
     Button end, ace, faute, let, fautej1, fautej2, gagnej1, gagnej2;
     ImageButton local, gallery;
-
+    Match current;
 
 
     @Override
@@ -31,11 +32,19 @@ public class Score extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        current = (Match) getIntent().getSerializableExtra("Match");
+
         //textview:
         name_joueur1 = findViewById(R.id.name_joueur1);
         name_joueur2 = findViewById(R.id.name_joueur2);
         name_j1 = findViewById(R.id.name_j1);
         name_j2 = findViewById(R.id.name_j2);
+
+        name_joueur1.setText(current.getJoueur1());
+        name_j1.setText(current.getJoueur1());
+        name_joueur2.setText(current.getJoueur2());
+        name_j2.setText(current.getJoueur2());
+
         score_j1_m1 = findViewById(R.id.score_j1_m1);
         score_j1_m2 = findViewById(R.id.score_j1_m2);
         score_j1_m3 = findViewById(R.id.score_j1_m3);
@@ -75,7 +84,7 @@ public class Score extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.previous_matches) {
+        if (id == R.id.previous_match) {
             Intent intent= new Intent (this, previousmatches.class);
             startActivity(intent);
 
@@ -89,6 +98,15 @@ public class Score extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void myClickHandlerEnd(View view){
+        if (view.getId() == R.id.end_button) {
+            Intent intent = new Intent(this, recapmatch.class);
+            startActivity(intent);
+        }
+    }
+
+
 
 
 

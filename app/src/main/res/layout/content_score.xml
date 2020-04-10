@@ -66,8 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView"
-                    tools:text="@string/Manche1" />
+                    android:text="@string/Manche1" />
 
                 <TextView
                     android:id="@+id/score_j1_m1"
@@ -164,6 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="myClickHandlerMatch"
                 android:text="@string/let" />
 
             <Button
@@ -171,6 +171,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="myClickHandlerMatch"
                 android:text="@string/ace" />
         </LinearLayout>
 
@@ -221,6 +222,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="myClickHandlerMatch"
                     android:text="@string/gagne" />
 
                 <Button
@@ -228,6 +230,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="myClickHandlerMatch"
                     android:text="@string/gagne" />
             </LinearLayout>
 
@@ -242,6 +245,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="myClickHandlerMatch"
                     android:text="@string/faute" />
 
                 <Button
@@ -249,6 +253,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="myClickHandlerMatch"
                     android:text="@string/faute" />
 
             </LinearLayout>
@@ -279,6 +284,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="myClickHandlerEnd"
                 android:text="@string/fin" />
         </LinearLayout>
 

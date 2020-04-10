@@ -3,22 +3,18 @@ package com.example.pp;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     EditText entrer_joueur1, entrer_joueur2;
     TextView afficher_joueur1, afficher_joueur2;
     CheckBox servicej1, servicej2;
+    int service_joueur;
 
 
 
@@ -38,7 +35,38 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         entrer_joueur1 = findViewById(R.id.entrer_joueur1);
+        entrer_joueur1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                afficher_joueur1.setText(entrer_joueur1.getText().toString());
+            }
+        });
         entrer_joueur2 = findViewById(R.id.entrer_joueur2);
+        entrer_joueur2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                afficher_joueur2.setText(entrer_joueur2.getText().toString());
+            }
+        });
         afficher_joueur1 = findViewById(R.id.afficher_joueur1);
         afficher_joueur2 = findViewById(R.id.afficher_joueur2);
         servicej1 = findViewById(R.id.service_j1);
@@ -46,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
         handler = new Handler();
 
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -64,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.previous_matches) {
+        if (id == R.id.previous_match) {
             Intent intent= new Intent (this, previousmatches.class);
             startActivity(intent);
 
@@ -78,9 +104,23 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    protected void myClickHandlerGo(View view){
-        Intent intent = new Intent (this, Score.class);
-        startActivity(intent);
+    public void myClickHandlerGo(View view){
+        if (view.getId() == R.id.go) {
+            String joueur1 = entrer_joueur1.getText().toString();
+            String joueur2= entrer_joueur2.getText().toString();
+            if (servicej1.isChecked())
+            {
+                service_joueur = 1;
+            }
+            else if (servicej2.isChecked())
+            {
+                service_joueur = 2;
+            }
+            Match current = new Match(joueur1, joueur2, service_joueur);
+            Intent intent = new Intent(this, Score.class);
+            intent.putExtra("Match", current);
+            startActivity(intent);
+        }
     }
 
 }
