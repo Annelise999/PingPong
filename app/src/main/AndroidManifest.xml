@@ -14,14 +14,6 @@
             android:label="@string/title_activity_previousmatches"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".match"
-            android:label="@string/title_activity_match"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".choixjoueur"
-            android:label="@string/title_activity_choixjoueur"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".recapmatch"
             android:label="@string/title_activity_recapmatch"
             android:theme="@style/AppTheme.NoActionBar" />

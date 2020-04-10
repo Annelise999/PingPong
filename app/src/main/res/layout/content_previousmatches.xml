@@ -19,16 +19,9 @@
             android:layout_height="wrap_content"
             android:text="@string/prev_matches" />
 
-        <Button
-            android:id="@+id/see_1"
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_height="match_parent" />
 
-        <Button
-            android:id="@+id/see_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
