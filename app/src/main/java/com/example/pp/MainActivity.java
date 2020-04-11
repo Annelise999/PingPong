@@ -15,9 +15,14 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private static final String TAG = "MainActivity";
+
+    DatabaseHelper mDataBaseHelper;
 
     private Handler handler;
     EditText entrer_joueur1, entrer_joueur2;
@@ -27,12 +32,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choixjoueur);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mDataBaseHelper= new DatabaseHelper(this);
 
         entrer_joueur1 = findViewById(R.id.entrer_joueur1);
         entrer_joueur1.addTextChangedListener(new TextWatcher() {
@@ -75,6 +83,21 @@ public class MainActivity extends AppCompatActivity {
         servicej2.setText("a le service");
         handler = new Handler();
 
+    }
+
+    public void addData (String newEntry){
+        boolean insertData = mDataBaseHelper.addData(newEntry);
+        if (insertData){
+            toastMessage("Insert correctly");
+        }
+        else {
+            toastMessage("Something went wrong");
+        }
+
+    }
+
+    public void toastMessage (String message ){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

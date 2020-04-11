@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.content.Intent;
+import android.widget.Toast;
 
 public class Score extends AppCompatActivity {
 
@@ -32,6 +33,8 @@ public class Score extends AppCompatActivity {
         setContentView(R.layout.activity_score);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         current = (Match) getIntent().getSerializableExtra("Match");
 
@@ -78,6 +81,8 @@ public class Score extends AppCompatActivity {
         handler = new Handler();
 
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -179,6 +184,7 @@ public class Score extends AppCompatActivity {
             Intent intent = new Intent(this, recapmatch.class);
             intent.putExtra("Match", current);
             startActivity(intent);
+            //save match in the bdd
         }
 
 

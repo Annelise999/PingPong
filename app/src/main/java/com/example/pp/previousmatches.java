@@ -1,19 +1,34 @@
 package com.example.pp;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
+import android.content.Context;
+import android.content.ContentValues;
+import android.database.DatabaseErrorHandler:
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class previousmatches extends AppCompatActivity {
+
+    private static final String TAG = "ListPreviousMatchActivity";
+
+    DatabaseHelper mDataBaseHelper;
+
+    private ListView myliste;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +37,27 @@ public class previousmatches extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        myliste = findViewById(R.id.Liste_matches);
+        mDataBaseHelper= new DatabaseHelper(this);
+
+        populateListView ();
+
+    }
+
+    private void populateListView()
+    {
+        Cursor data = mDataBaseHelper.getData();
+        ArrayList<String> listData = new ArrayList<>();
+        while (data.moveToNext()){
+            listData.add(data.getString(1));
+        }
+
+        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,listData);
+        myliste.setAdapter(adapter);
+    }
+
+    public void toastMessage (String message ){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
