@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class previousmatches extends AppCompatActivity {
 
-    private static final String TAG = "ListPreviousMatchActivity";
+
 
     DatabaseHelper mDataBaseHelper;
 

@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    DatabaseHelper mDataBaseHelper;
+
 
     private Handler handler;
     EditText entrer_joueur1, entrer_joueur2;
@@ -32,15 +32,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choixjoueur);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        mDataBaseHelper= new DatabaseHelper(this);
 
         entrer_joueur1 = findViewById(R.id.entrer_joueur1);
         entrer_joueur1.addTextChangedListener(new TextWatcher() {
@@ -84,18 +81,13 @@ public class MainActivity extends AppCompatActivity {
         servicej2.setText("a le service");
         handler = new Handler();
 
-    }
 
-    public void addData (Match m){
-        boolean insertData = mDataBaseHelper.addData(m);
-        if (insertData){
-            toastMessage("Insert correctly");
-        }
-        else {
-            toastMessage("Something went wrong");
-        }
 
     }
+
+
+
+
 
     public void toastMessage (String message ){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

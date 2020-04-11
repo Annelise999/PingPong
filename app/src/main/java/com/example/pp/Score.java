@@ -197,6 +197,9 @@ public class Score extends AppCompatActivity {
 
         if (gagnant == 1) {
 
+            current.PointsTotJ1(current.getPts_manche1_j1()+ current.getPts_manche2_j1()+ current.getPts_manche3_j1());
+            current.PointsTotJ2(current.getPts_manche1_j2()+ current.getPts_manche2_j2()+ current.getPts_manche3_j2());
+
             Intent intent = new Intent(this, recapmatch.class);
             intent.putExtra("Match", current);
             startActivity(intent);

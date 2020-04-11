@@ -24,18 +24,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String MANCHES_J2 = "manches_j2";
     public static final String LET_J1= "let_j1";
     public static final String LET_J2 = "let_j2";
-    public static final String LAT= "lat";
-    public static final String LONG= "long";
+
 
 
 
     public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME +
-            " ( id INTEGER PRIMARY KEY AUTOINCREMENT, joueur1 TEXT, joueur2 TEXT, balle INTEGER, aces_j1 INTEGER, aces_j2 INTEGER, fautes_j1 INTEGER, fautes_j2 INTEGER, manches_j1 INTEGER, manches_j2 INTEGER, let_j1 INTEGER, let_j2 INTEGER, points_j1 INTEGER, points_j2 INTEGER, lat REAL, long REAL)";
+            " ( id INTEGER PRIMARY KEY AUTOINCREMENT, joueur1 TEXT, joueur2 TEXT, points_j1 INTEGER, points_j2 INTEGER, balle INTEGER, aces_j1 INTEGER, aces_j2 INTEGER, fautes_j1 INTEGER, fautes_j2 INTEGER, let_j1 INTEGER, let_j2 INTEGER, manches_j1 INTEGER, manches_j2 INTEGER)";
 
 
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 2);
+        super(context, DATABASE_NAME, null, 3);
     }
 
     @Override
@@ -62,19 +61,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         contentValues.put(JOUEUR1, m.getJoueur1());
         contentValues.put(JOUEUR2, m.getJoueur2());
+        contentValues.put(POINTS_J1, m.getPts_j1());
+        contentValues.put(POINTS_J2, m.getPts_j2());
         contentValues.put(BALLE, m.getBalle());
         contentValues.put(ACES_J1, m.getAces_j1());
         contentValues.put(ACES_J2, m.getAces_j2());
-        contentValues.put(MANCHES_J1, m.getManches_j1());
-        contentValues.put(MANCHES_J2, m.getManches_j2());
         contentValues.put(FAUTES_J1, m.getFautes_j1());
         contentValues.put(FAUTES_J2, m.getFautes_j2());
         contentValues.put(LET_J1, m.getLet_j1());
         contentValues.put(LET_J2, m.getLet_j2());
-        contentValues.put(POINTS_J1, m.getPts_j1());
-        contentValues.put(POINTS_J2, m.getPts_j2());
-        contentValues.put(LAT, m.getLat());
-        contentValues.put(LONG, m.getLng());
+        contentValues.put(MANCHES_J1, m.getManches_j1());
+        contentValues.put(MANCHES_J2, m.getManches_j2());
 
         long result = db.insert (TABLE_NAME, null, contentValues);
 

@@ -40,5 +40,11 @@
     <string name="title_activity_match">match</string>
     <string name="title_activity_previousmatches">previousmatches</string>
     <string name="Balle">NOMBRE DE BALLES :</string>
+    <string name="match1">MATCH 1</string>
+    <string name="match2">MATCH 2</string>
+    <string name="match3" />
+    <string name="match_3">MATCH 3</string>
+    <string name="match4">MATCH 4</string>
+    <string name="match5">MATCH 5</string>
 </resources>
 
