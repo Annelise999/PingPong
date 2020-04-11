@@ -22,7 +22,6 @@ public class previousmatches extends AppCompatActivity {
     DatabaseHelper mDataBaseHelper;
 
     private ListView myliste;
-    private ArrayList<Match> listData;
     private ArrayList<String> info_match;
 
     @Override
@@ -42,12 +41,10 @@ public class previousmatches extends AppCompatActivity {
 
     private void populateListView()
     {
-        listData = new ArrayList<>();
         info_match = new ArrayList<>();
         Cursor data = mDataBaseHelper.getData();
         while (data.moveToNext()){
-            listData.add(new Match(data.getString(1), data.getString(2), data.getInt(12), data.getInt(13), data.getInt(3), data.getInt(4), data.getInt(5), data.getInt(6), data.getInt(7), data.getInt(10), data.getInt(11), data.getInt(8), data.getInt(9)));
-            info_match.add(data.getString(1) + data.getString(2));
+            info_match.add(data.getString(1) + ":" + data.getInt(3) + " VS " + data.getString(2) + ":" + data.getInt(4));
         }
 
 
