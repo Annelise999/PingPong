@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AppareilPhoto"
+            android:label="@string/title_activity_appareil_photo"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".previousmatches"
             android:label="@string/title_activity_previousmatches"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".recapmatch"
             android:label="@string/title_activity_recapmatch"
@@ -31,7 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

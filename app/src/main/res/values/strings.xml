@@ -40,5 +40,6 @@
     <string name="title_activity_match">match</string>
     <string name="title_activity_previousmatches">previousmatches</string>
     <string name="Balle">NOMBRE DE BALLES :</string>
+    <string name="title_activity_appareil_photo">AppareilPhoto</string>
 </resources>
 

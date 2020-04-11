@@ -286,6 +286,7 @@
                 android:layout_weight="1"
                 android:onClick="myClickHandlerEnd"
                 android:text="@string/fin" />
+
         </LinearLayout>
 
     </LinearLayout>
