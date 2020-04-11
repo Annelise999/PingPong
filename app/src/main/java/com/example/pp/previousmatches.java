@@ -14,6 +14,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class previousmatches extends AppCompatActivity {
@@ -23,6 +24,7 @@ public class previousmatches extends AppCompatActivity {
     DatabaseHelper mDataBaseHelper;
 
     private ListView myliste;
+    private ArrayList<String> listData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +36,15 @@ public class previousmatches extends AppCompatActivity {
         myliste = findViewById(R.id.Liste_matches);
         mDataBaseHelper= new DatabaseHelper(this);
 
+
         populateListView ();
 
     }
 
     private void populateListView()
     {
+        listData = new ArrayList<>();
         Cursor data = mDataBaseHelper.getData();
-        ArrayList<String> listData = new ArrayList<>();
         while (data.moveToNext()){
             listData.add(data.getString(1));
         }
@@ -50,9 +53,6 @@ public class previousmatches extends AppCompatActivity {
         myliste.setAdapter(adapter);
     }
 
-    public void toastMessage (String message ){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

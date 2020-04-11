@@ -6,18 +6,21 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
+
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
 
-    private static final String TAG = "DataBaseHelper";
+    private static final String DATABASE_NAME = "mylist.db";
     private static final String TABLE_NAME = "PingPong_table";
-    private static final String COL_1 = "ID";
-    private static final String COL_2= "Name";
+    private static final String COL1 = "ID";
+    private static final String COL2= "joueur1";
+    private static final String COL3= "joueur2";
 
 
     public DatabaseHelper(Context context) {
-        super(context, TABLE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 1);
     }
 
     @Override
@@ -28,17 +31,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void onCreate (SQLiteDatabase db){
-    String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_1 + "TEXT )" ;
+    String createTable = "CREATE TABLE " + TABLE_NAME +
+            " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            " joueur1 TEXT )" ;
     db.execSQL (createTable);
+
     }
 
     public boolean addData (String item)
     {
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2, item);
+        contentValues.put(COL2, item);
 
-        Log.d(TAG,  "addData : Adding" + item + "to " + TABLE_NAME);
+
 
         long result = db.insert (TABLE_NAME, null, contentValues);
 
@@ -59,5 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
 
     }
+
+
 
 }

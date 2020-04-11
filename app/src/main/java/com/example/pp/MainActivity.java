@@ -20,7 +20,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
 
-    private static final String TAG = "MainActivity";
+
 
     DatabaseHelper mDataBaseHelper;
 
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 afficher_joueur1.setText(entrer_joueur1.getText().toString());
+
             }
         });
         entrer_joueur2 = findViewById(R.id.entrer_joueur2);
@@ -133,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
         if (view.getId() == R.id.go) {
             String joueur1 = entrer_joueur1.getText().toString();
             String joueur2= entrer_joueur2.getText().toString();
+
             if (servicej1.isChecked())
             {
                 service_joueur = 1;

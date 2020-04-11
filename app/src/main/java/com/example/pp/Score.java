@@ -24,7 +24,7 @@ public class Score extends AppCompatActivity {
     Button end, ace, faute, let, fautej1, fautej2, gagnej1, gagnej2;
     ImageButton local, gallery;
     Match current;
-
+    DatabaseHelper mDataBaseHelper;
 
 
     @Override
@@ -34,7 +34,7 @@ public class Score extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        mDataBaseHelper= new DatabaseHelper(this);
 
         current = (Match) getIntent().getSerializableExtra("Match");
 
@@ -80,6 +80,21 @@ public class Score extends AppCompatActivity {
 
         handler = new Handler();
 
+    }
+
+    public void addData (String newEntry){
+        boolean insertData = mDataBaseHelper.addData(newEntry);
+        if (insertData){
+            toastMessage("Insert correctly");
+        }
+        else {
+            toastMessage("Something went wrong");
+        }
+
+    }
+
+    public void toastMessage (String message ){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -181,9 +196,11 @@ public class Score extends AppCompatActivity {
 
 
         if (gagnant == 1) {
+
             Intent intent = new Intent(this, recapmatch.class);
             intent.putExtra("Match", current);
             startActivity(intent);
+            addData(current.getJoueur1() + " VS " + current.getJoueur2() + " win by: " + current.getGagnant());
             //save match in the bdd
         }
 
