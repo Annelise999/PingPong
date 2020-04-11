@@ -39,5 +39,6 @@
     <string name="title_activity_menu2">Menu2</string>
     <string name="title_activity_match">match</string>
     <string name="title_activity_previousmatches">previousmatches</string>
+    <string name="Balle">NOMBRE DE BALLES :</string>
 </resources>
 

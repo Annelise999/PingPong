@@ -53,6 +53,13 @@ public class Score extends AppCompatActivity {
         score_j2_m2 = findViewById(R.id.score_j2_m2);
         score_j2_m3 = findViewById(R.id.score_j2_m3);
 
+        score_j1_m1.setText(String.valueOf(0));
+        score_j2_m1.setText(String.valueOf(0));
+        score_j1_m2.setText(String.valueOf(0));
+        score_j2_m2.setText(String.valueOf(0));
+        score_j1_m3.setText(String.valueOf(0));
+        score_j2_m3.setText(String.valueOf(0));
+
 
 
         //Button
@@ -114,6 +121,7 @@ public class Score extends AppCompatActivity {
 
     public void myClickHandlerMatch (View view)
     {
+        int gagnant =0;
 
         switch(view.getId()) {
             case R.id.button_let:
@@ -164,14 +172,22 @@ public class Score extends AppCompatActivity {
 
         }
 
-        current.CheckMancheAndWinner();
+        gagnant = current.CheckMancheAndWinner();
+
+
+        if (gagnant == 1) {
+            Intent intent = new Intent(this, recapmatch.class);
+            intent.putExtra("Match", current);
+            startActivity(intent);
+        }
+
+
 
         if( current.getCurrent_manche()== 1)
         {
             score_j1_m1.setText(String.valueOf(current.getPts_j1()));
             score_j2_m1.setText(String.valueOf(current.getPts_j2()));
-            name_j1.setText(String.valueOf(current.getManches_j1()));
-            name_j2.setText(String.valueOf(current.getCurrent_manche()));
+
 
         }
         else if(current.getCurrent_manche() == 2) {
@@ -186,13 +202,6 @@ public class Score extends AppCompatActivity {
             score_j1_m3.setText(String.valueOf(current.getPts_j1()));
             score_j2_m3.setText(String.valueOf(current.getPts_j2()));
         }
-
-
-
-
-
-
-
 
     }
 

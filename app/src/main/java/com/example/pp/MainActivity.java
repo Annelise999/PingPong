@@ -70,7 +70,9 @@ public class MainActivity extends AppCompatActivity {
         afficher_joueur1 = findViewById(R.id.afficher_joueur1);
         afficher_joueur2 = findViewById(R.id.afficher_joueur2);
         servicej1 = findViewById(R.id.service_j1);
+        servicej1.setText("a le service");
         servicej2 = findViewById(R.id.service_j2);
+        servicej2.setText("a le service");
         handler = new Handler();
 
     }

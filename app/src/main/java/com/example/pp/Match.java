@@ -128,14 +128,41 @@ public class Match implements Serializable {
         }
     }
 
-    public void CheckMancheAndWinner(){
+    public void PointsTotJ1(int point)
+    {
+        pts_j1= point;
+    }
 
-        if (manches_j1 < 2 && manches_j2 < 2) {
+    public void PointsTotJ2 (int point)
+    {
+        pts_j2= point;
+    }
+
+    public boolean CheckWinner ()
+    {
+        boolean win = false;
+        if (manches_j1 == 2)
+        {
+            gagnant= joueur1;
+            win= true;
+
+        }
+        else if (manches_j2 == 2)
+        {
+            gagnant= joueur2;
+            win = true;
+        }
+        return win;
+    }
+
+    public int CheckMancheAndWinner(){
+
+
             if (pts_j1 > 10 ) {
                 switch (current_manche) {
                     case 1:
                         pts_manche1_j1= pts_j1;
-                        manches_j1 ++;
+                        manches_j1 += 1;
                         pts_manche1_j2= pts_j2;
                         pts_j1= 0;
                         pts_j2=0;
@@ -143,17 +170,18 @@ public class Match implements Serializable {
                         break;
                     case 2:
                         pts_manche2_j1= pts_j1;
-                        manches_j1 ++;
+                        manches_j1 += 1;
                         pts_manche2_j2= pts_j2;
                         pts_j1= 0;
                         pts_j2=0;
+                        break;
 
                     case 3:
                         pts_manche3_j1= pts_j1;
-                        manches_j1 ++;
+                        manches_j1 += 1;
                         pts_manche3_j2= pts_j2;
-                        pts_j1= 0;
-                        pts_j2=0;
+
+                        break;
 
                 }
                 current_manche += 1;
@@ -164,37 +192,37 @@ public class Match implements Serializable {
                 switch (current_manche) {
                     case 1:
                         pts_manche1_j1= pts_j1;
-                        manches_j2 ++;
+                        manches_j2 += 1;
                         pts_manche1_j2= pts_j2;
                         pts_j1= 0;
                         pts_j2=0;
                         break;
                     case 2:
                         pts_manche2_j1= pts_j1;
-                        manches_j2 ++;
+                        manches_j2 += 1;
                         pts_manche2_j2= pts_j2;
                         pts_j1= 0;
                         pts_j2=0;
+                        break;
                     case 3:
                         pts_manche3_j1= pts_j1;
-                        manches_j2 ++;
+                        manches_j2 += 1;
                         pts_manche3_j2= pts_j2;
-                        pts_j1= 0;
-                        pts_j2=0;
+
+                        break;
                 }
                 current_manche += 1;
             }
+
+
+        if (CheckWinner()== true)
+        {
+            return 1;
         }
         else {
-            if (manches_j1 == 2)
-            {
-                gagnant= joueur1;
-            }
-            else if (manches_j2==2)
-            {
-                gagnant= joueur2;
-            }
+            return 0;
         }
+
 
     }
 

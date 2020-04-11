@@ -34,6 +34,9 @@ public class recapmatch extends AppCompatActivity {
 
         current = (Match) getIntent().getSerializableExtra("Match");
 
+        current.PointsTotJ1(current.getPts_manche1_j1()+ current.getPts_manche2_j1()+ current.getPts_manche3_j1());
+        current.PointsTotJ2(current.getPts_manche1_j2()+ current.getPts_manche2_j2()+ current.getPts_manche3_j2());
+
         //textview:
         nom_gagnant = findViewById(R.id.nom_gagnant);
         nom_gagnant.setText(current.getGagnant());
@@ -59,6 +62,12 @@ public class recapmatch extends AppCompatActivity {
         fautes_j1.setText(String.valueOf(current.getFautes_j1()));
         fautes_j2 = findViewById(R.id.fautes_joueur2);
         fautes_j2.setText(String.valueOf(current.getFautes_j2()));
+
+        let_j1= findViewById(R.id.let_joueur1);
+        let_j1.setText(String.valueOf(current.getLet_j1()));
+        let_j2= findViewById(R.id.let_joueur2);
+        let_j2.setText(String.valueOf(current.getLet_j2()));
+
 
 
         //Button
