@@ -3,7 +3,6 @@ package com.example.pp;
 import android.content.Context;
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler:
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -23,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1){
-        db.execSQL (" DROP IF TABLE EXISTS " + TABLE_NAME);
+        db.execSQL (" DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
 
     }
