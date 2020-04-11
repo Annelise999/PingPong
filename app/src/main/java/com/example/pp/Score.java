@@ -82,8 +82,8 @@ public class Score extends AppCompatActivity {
 
     }
 
-    public void addData (String newEntry){
-        boolean insertData = mDataBaseHelper.addData(newEntry);
+    public void addData (Match m){
+        boolean insertData = mDataBaseHelper.addData(m);
         if (insertData){
             toastMessage("Insert correctly");
         }
@@ -200,7 +200,7 @@ public class Score extends AppCompatActivity {
             Intent intent = new Intent(this, recapmatch.class);
             intent.putExtra("Match", current);
             startActivity(intent);
-            addData(current.getJoueur1() + " VS " + current.getJoueur2() + " win by: " + current.getGagnant());
+            addData(current);
             //save match in the bdd
         }
 

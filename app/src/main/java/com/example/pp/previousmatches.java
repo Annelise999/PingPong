@@ -12,9 +12,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class previousmatches extends AppCompatActivity {
@@ -24,7 +22,8 @@ public class previousmatches extends AppCompatActivity {
     DatabaseHelper mDataBaseHelper;
 
     private ListView myliste;
-    private ArrayList<String> listData;
+    private ArrayList<Match> listData;
+    private ArrayList<String> info_match;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +43,15 @@ public class previousmatches extends AppCompatActivity {
     private void populateListView()
     {
         listData = new ArrayList<>();
+        info_match = new ArrayList<>();
         Cursor data = mDataBaseHelper.getData();
         while (data.moveToNext()){
-            listData.add(data.getString(1));
+            listData.add(new Match(data.getString(1), data.getString(2), data.getInt(12), data.getInt(13), data.getInt(3), data.getInt(4), data.getInt(5), data.getInt(6), data.getInt(7), data.getInt(10), data.getInt(11), data.getInt(8), data.getInt(9)));
+            info_match.add(data.getString(1) + data.getString(2));
         }
 
-        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,listData);
+
+        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,info_match);
         myliste.setAdapter(adapter);
     }
 

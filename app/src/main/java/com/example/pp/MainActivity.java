@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void addData (String newEntry){
-        boolean insertData = mDataBaseHelper.addData(newEntry);
+    public void addData (Match m){
+        boolean insertData = mDataBaseHelper.addData(m);
         if (insertData){
             toastMessage("Insert correctly");
         }

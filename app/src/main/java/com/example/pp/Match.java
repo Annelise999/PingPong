@@ -55,7 +55,6 @@ public class Match implements Serializable {
         pts_manche2_j2=0;
         pts_manche3_j1=0;
         pts_manche3_j2=0;
-
         pts_j1=0;
         pts_j2=0;
     }
@@ -89,9 +88,9 @@ public class Match implements Serializable {
         this.joueur_service= joueur_service;
     }
 
-    public Match(String gagnant, int current_manche, int pts_j1, int pts_j2, long id, String joueur1, String joueur2, int balle, int aces_j1, int aces_j2, int fautes_j1, int fautes_j2, int let_j1, int let_j2, int manches_j1, int manches_j2, int pts_manche1_j1, int pts_manche1_j2, int pts_manche2_j1, int pts_manche2_j2, int pts_manche3_j1, int pts_manche3_j2, int joueur_service) {
+    public Match(String joueur1, String joueur2, int pts_j1, int pts_j2,  int balle, int aces_j1, int aces_j2, int fautes_j1, int fautes_j2, int let_j1, int let_j2, int manches_j1, int manches_j2) {
         super();
-        this.id = id;
+        id= 0;
         this.joueur1 = joueur1;
         this.joueur2 = joueur2;
         this.balle = balle;
@@ -103,17 +102,17 @@ public class Match implements Serializable {
         this.let_j2= let_j2;
         this.manches_j1= manches_j1;
         this.manches_j2= manches_j2;
-        this.pts_manche1_j1= pts_manche1_j1;
-        this.pts_manche1_j2= pts_manche1_j2;
-        this.pts_manche2_j1= pts_manche2_j1;
-        this.pts_manche2_j2= pts_manche2_j2;
-        this.pts_manche3_j1= pts_manche3_j1;
-        this.pts_manche3_j2= pts_manche3_j2;
-        this.joueur_service= joueur_service;
         this.pts_j1= pts_j1;
         this.pts_j2= pts_j2;
-        this.current_manche = current_manche;
-        this.gagnant= gagnant;
+        pts_manche1_j1=0;
+        pts_manche1_j2=0;
+        pts_manche2_j1=0;
+        pts_manche2_j2=0;
+        pts_manche3_j1=0;
+        pts_manche3_j2=0;
+        joueur_service=1;
+        current_manche = 1;
+        gagnant= "nom du gagnant";
     }
 
     public void changementServeur()
