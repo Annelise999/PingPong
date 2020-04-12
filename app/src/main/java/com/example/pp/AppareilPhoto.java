@@ -32,6 +32,10 @@ public class AppareilPhoto extends AppCompatActivity {
     private Button btnPrendrePhoto;
     private ImageView imgAffichePhoto;
     private String photoPath = null;
+    private Button btnEnreg;
+    private Bitmap image;
+
+
 
 
 
@@ -41,28 +45,32 @@ public class AppareilPhoto extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appareil_photo);
-        initActivity();
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        initActivity();    }
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+    private void initActivity() {
+        // récupération des objets graphiques
+        btnPrendrePhoto = (Button) findViewById(R.id.btnPrendrePhoto);
+        imgAffichePhoto = (ImageView) findViewById(R.id.imgAffichePhoto);
+        btnPrendrePhoto = (Button) findViewById(R.id.btnEnreg);
+        // méthode pour gérer les événements
+        createOnClickBtnPrendrePhoto();
+        createOnClickBtnEnreg();
+    }
+
+
+    private void createOnClickBtnEnreg(){
+        btnEnreg.setOnClickListener(new Button.OnClickListener() {
+
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+            // enregistrer la photo
+                MediaStore.Images.Media.insertImage(getContentResolver(), image, "photo", "joueur");
+
             }
         });
-    }
 
-    private void initActivity(){
-        // récupération des objets graphiques
-        btnPrendrePhoto = (Button)findViewById(R.id.btnPrendrePhoto);
-        imgAffichePhoto = (ImageView)findViewById(R.id.imgAffichePhoto);
-        // méthode pour gérer les événements
+        }
 
-
-    }
     private void createOnClickBtnPrendrePhoto(){
         btnPrendrePhoto.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -117,7 +125,7 @@ public class AppareilPhoto extends AppCompatActivity {
         // vérifie le bon code de retour et l'état du retour ok
         if (requestcode==RETOUR_PRENDRE_PHOTO && resultCode==RESULT_OK){
             //récupérer l'image
-            Bitmap image = BitmapFactory.decodeFile(photoPath);
+            image = BitmapFactory.decodeFile(photoPath);
             // afficher l'image
             imgAffichePhoto.setImageBitmap(image);
 
