@@ -1,5 +1,7 @@
 package com.example.pp;
 
+import android.content.Context;
+import android.location.LocationManager;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,9 @@ public class Score extends AppCompatActivity {
 
     private Handler handler;
 
+
+    private LocationManager locationManager;
+
     TextView name_joueur1, name_joueur2, name_j1, name_j2, score_j1_m1, score_j1_m2, score_j1_m3, score_j2_m1, score_j2_m2, score_j2_m3;
     Button end, ace, faute, let, fautej1, fautej2, gagnej1, gagnej2;
     ImageButton local, gallery;
@@ -35,6 +40,9 @@ public class Score extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mDataBaseHelper= new DatabaseHelper(this);
+
+       locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+
 
         current = (Match) getIntent().getSerializableExtra("Match");
 

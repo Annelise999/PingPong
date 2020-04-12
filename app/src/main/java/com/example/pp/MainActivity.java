@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -130,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
             if (servicej1.isChecked())
             {
                 service_joueur = 1;
+
+
             }
             else if (servicej2.isChecked())
             {
@@ -139,6 +142,25 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, Score.class);
             intent.putExtra("Match", current);
             startActivity(intent);
+        }
+    }
+
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+
+        // Check which checkbox was clicked
+        switch(view.getId()) {
+            case R.id.service_j1:
+                if (checked)
+                    servicej2.setChecked(false);
+
+                break;
+            case R.id.service_j2:
+                if (checked)
+                    servicej1.setChecked(false);
+
+                break;
         }
     }
 

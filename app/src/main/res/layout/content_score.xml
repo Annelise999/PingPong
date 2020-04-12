@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10px"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Score"
     tools:showIn="@layout/activity_score">
@@ -11,76 +12,122 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#33A8A8A8"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/score_titre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#33A8A8A8"
+            android:gravity="center"
             android:text="@string/score"
+            android:textColor="#304848"
             android:textColorHighlight="#00BCD4"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:background="#33A8A8A8"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/vide"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:background="#2FA8A8A8"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:typeface="monospace" />
 
                 <TextView
                     android:id="@+id/name_joueur1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10px"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textColor="#304848"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
 
                 <TextView
                     android:id="@+id/name_joueur2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10px"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textColor="#304848"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/manche1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10px"
                     android:layout_weight="1"
-                    android:text="@string/Manche1" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="@string/Manche1"
+                    android:textColor="#304848"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
 
                 <TextView
                     android:id="@+id/score_j1_m1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10px"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    android:typeface="monospace" />
 
                 <TextView
                     android:id="@+id/score_j2_m1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10px"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    android:typeface="monospace" />
 
             </LinearLayout>
 
@@ -88,28 +135,46 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/manche2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10px"
                     android:layout_weight="1"
-                    android:text="@string/Manche2" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="@string/Manche2"
+                    android:textColor="#304848"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
 
                 <TextView
                     android:id="@+id/score_j1_m2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10px"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    android:typeface="monospace" />
 
                 <TextView
                     android:id="@+id/score_j2_m2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10px"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    android:typeface="monospace" />
 
             </LinearLayout>
 
@@ -117,6 +182,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
                 android:orientation="vertical">
 
                 <TextView
@@ -124,21 +190,38 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Manche3" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="@string/Manche3"
+                    android:textColor="#304848"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace"
+                    android:layout_margin="10px" />
 
                 <TextView
                     android:id="@+id/score_j1_m3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10px"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    android:typeface="monospace" />
 
                 <TextView
                     android:id="@+id/score_j2_m3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10px"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    android:typeface="monospace" />
 
             </LinearLayout>
 
@@ -148,51 +231,80 @@
             android:id="@+id/titre2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#33A8A8A8"
+            android:gravity="center"
             android:text="@string/service"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textColor="#304848"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:background="#33A8A8A8"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button_let"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_margin="20px"
                 android:layout_weight="1"
+                android:background="@drawable/mybutton"
+                android:ellipsize="none"
+                android:gravity="center"
                 android:onClick="myClickHandlerMatch"
-                android:text="@string/let" />
+                android:padding="20px"
+                android:text="@string/let"
+                android:textColor="#CAA882"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:typeface="monospace" />
 
             <Button
                 android:id="@+id/button_ace"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_margin="20px"
                 android:layout_weight="1"
+                android:background="@drawable/mybutton"
+                android:ellipsize="none"
+                android:gravity="center"
                 android:onClick="myClickHandlerMatch"
-                android:text="@string/ace" />
+                android:padding="20px"
+                android:text="@string/ace"
+                android:textColor="#CAA882"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:typeface="monospace" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/titre3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#33A8A8A8"
+            android:gravity="center"
             android:text="@string/echange"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textColor="#304848"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:background="#33A8A8A8"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
                 android:orientation="vertical">
 
                 <TextView
@@ -200,61 +312,113 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textColor="#304848"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
 
                 <TextView
                     android:id="@+id/name_j2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:background="#33A8A8A8"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textColor="#304848"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/button_gagne_j1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="20px"
                     android:layout_weight="1"
+                    android:background="@drawable/mybutton"
+                    android:ellipsize="none"
+                    android:gravity="center"
                     android:onClick="myClickHandlerMatch"
-                    android:text="@string/gagne" />
+                    android:padding="20px"
+                    android:text="@string/gagne"
+                    android:textColor="#CAA882"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
 
                 <Button
                     android:id="@+id/button_gagne_j2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="20px"
                     android:layout_weight="1"
+                    android:background="@drawable/mybutton"
+                    android:ellipsize="none"
+                    android:gravity="center"
                     android:onClick="myClickHandlerMatch"
-                    android:text="@string/gagne" />
+                    android:padding="20px"
+                    android:text="@string/gagne"
+                    android:textColor="#CAA882"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/button_faute_j1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="20px"
                     android:layout_weight="1"
+                    android:background="@drawable/mybutton"
+                    android:ellipsize="none"
+                    android:gravity="center"
                     android:onClick="myClickHandlerMatch"
-                    android:text="@string/faute" />
+                    android:padding="20px"
+                    android:text="@string/faute"
+                    android:textColor="#CAA882"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
 
                 <Button
                     android:id="@+id/button_faute_j2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="20px"
                     android:layout_weight="1"
+                    android:background="@drawable/mybutton"
+                    android:ellipsize="none"
+                    android:gravity="center"
                     android:onClick="myClickHandlerMatch"
-                    android:text="@string/faute" />
+                    android:padding="20px"
+                    android:text="@string/faute"
+                    android:textColor="#CAA882"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
 
             </LinearLayout>
         </LinearLayout>
@@ -263,29 +427,44 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#33A8A8A8"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/gallery_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="20px"
                 android:layout_weight="1"
+                android:background="#CAA882"
+                android:scaleType="center"
+                android:tint="#000000"
                 app:srcCompat="@android:drawable/ic_menu_gallery" />
 
             <ImageButton
                 android:id="@+id/local_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="20px"
                 android:layout_weight="1"
+                android:background="#CAA882"
+                android:scaleType="center"
+                android:tint="#000000"
                 app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
             <Button
                 android:id="@+id/end_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="20px"
                 android:layout_weight="1"
+                android:background="#CAA882"
+                android:gravity="center"
                 android:onClick="myClickHandlerEnd"
-                android:text="@string/fin" />
+                android:text="@string/fin"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:typeface="monospace" />
         </LinearLayout>
 
     </LinearLayout>

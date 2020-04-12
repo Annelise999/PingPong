@@ -11,17 +11,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#33A8A8A8"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/string_match"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10px"
             android:layout_marginBottom="20px"
+            android:background="#33A8A8A8"
             android:gravity="center|right"
+            android:lineSpacingExtra="12sp"
             android:text="@string/match"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textColor="#304848"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            app:fontFamily="monospace" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,17 +40,31 @@
                 android:id="@+id/string_gagnant"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
                 android:text="@string/gagnant"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textColor="#304848"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/nom_gagnant"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
         </LinearLayout>
 
         <LinearLayout
@@ -57,27 +78,47 @@
                 android:id="@+id/string_duree"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
                 android:text="@string/Balle"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textColor="#304848"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/temps_match"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/string_stats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10px"
             android:layout_weight="1"
+            android:background="#33A8A8A8"
+            android:lineSpacingExtra="12sp"
             android:text="@string/Statistiques"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textColor="#304848"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            app:fontFamily="monospace" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -89,21 +130,44 @@
                 android:id="@+id/string_vide"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_margin="10px"
+                android:layout_weight="1"
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
+                android:textSize="20sp"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/afficher_joueur1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="#304848"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/afficher_joueur2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="#304848"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
         </LinearLayout>
 
         <LinearLayout
@@ -116,24 +180,45 @@
                 android:id="@+id/string_ACES"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
                 android:text="@string/aces"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textColor="#304848"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/ace_joueur1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/ace_joueur2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
         </LinearLayout>
 
@@ -147,24 +232,45 @@
                 android:id="@+id/string_points"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
                 android:text="@string/points"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textColor="#304848"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/points_joueur1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/points_joueur2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
         </LinearLayout>
 
         <LinearLayout
@@ -177,24 +283,45 @@
                 android:id="@+id/string_fautes"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
                 android:text="@string/fautes"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textColor="#304848"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/fautes_joueur1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/fautes_joueur2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
         </LinearLayout>
 
@@ -208,24 +335,45 @@
                 android:id="@+id/string_LET"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
                 android:text="@string/let"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textColor="#304848"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/let_joueur1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/let_joueur2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
         </LinearLayout>
 
@@ -239,24 +387,45 @@
                 android:id="@+id/string_manches"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
                 android:text="@string/manches"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textColor="#304848"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/manches_joueur1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
 
             <TextView
                 android:id="@+id/manches_joueur2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:background="#33A8A8A8"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
         </LinearLayout>
 
         <LinearLayout
@@ -269,23 +438,34 @@
                 android:id="@+id/local_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
+                android:background="#CCCAA882"
+                android:tint="#070000"
                 app:srcCompat="@android:drawable/ic_menu_mylocation" />
 
             <ImageButton
                 android:id="@+id/gallery_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
+                android:background="#CCCAA882"
+                android:tint="#070000"
                 app:srcCompat="@android:drawable/ic_menu_gallery" />
 
             <Button
                 android:id="@+id/return_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10px"
                 android:layout_weight="1"
+                android:background="#CCCAA882"
                 android:onClick="myClickHandlerRetour"
-                android:text="@string/retour" />
+                android:text="@string/retour"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:typeface="monospace" />
         </LinearLayout>
 
     </LinearLayout>

@@ -17,12 +17,20 @@
             android:id="@+id/previous_matches"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/prev_matches" />
+            android:background="#33A8A8A8"
+            android:text="@string/prev_matches"
+            android:textAllCaps="true"
+            android:textColor="#304848"
+            android:textSize="30sp"
+            android:typeface="monospace"
+            app:fontFamily="monospace" />
 
         <ListView
             android:id="@+id/Liste_matches"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="10px"
+            android:background="#33A8A8A8" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

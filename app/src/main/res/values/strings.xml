@@ -46,5 +46,7 @@
     <string name="match_3">MATCH 3</string>
     <string name="match4">MATCH 4</string>
     <string name="match5">MATCH 5</string>
+    <string name="sert">a le service</string>
+    <string name="enter">Entrez le nom des deux joueurs :</string>
 </resources>
 
