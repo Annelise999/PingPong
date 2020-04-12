@@ -48,5 +48,6 @@
     <string name="match5">MATCH 5</string>
     <string name="sert">a le service</string>
     <string name="enter">Entrez le nom des deux joueurs :</string>
+    <string name="returnmatch">RETOUR MATCH</string>
 </resources>
 

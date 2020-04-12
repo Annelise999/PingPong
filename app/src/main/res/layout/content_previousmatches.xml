@@ -22,6 +22,7 @@
             android:textAllCaps="true"
             android:textColor="#304848"
             android:textSize="30sp"
+            android:textStyle="bold"
             android:typeface="monospace"
             app:fontFamily="monospace" />
 
@@ -30,7 +31,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10px"
-            android:background="#33A8A8A8" />
+            android:layout_weight="1"
+            android:background="#33A8A8A8">
+
+        </ListView>
+
+        <Button
+            android:id="@+id/GoBack"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10px"
+            android:layout_weight="4"
+            android:background="#CAA882"
+            android:onClick="myClickGoBack"
+            android:text="@string/returnmatch"
+            android:textColor="#1A2020"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

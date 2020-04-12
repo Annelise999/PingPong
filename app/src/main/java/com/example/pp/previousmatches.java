@@ -9,7 +9,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -23,6 +25,7 @@ public class previousmatches extends AppCompatActivity {
 
     private ListView myliste;
     private ArrayList<String> info_match;
+    private Button go_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class previousmatches extends AppCompatActivity {
 
         myliste = findViewById(R.id.Liste_matches);
         mDataBaseHelper= new DatabaseHelper(this);
+        go_back= findViewById(R.id.GoBack);
 
 
         populateListView ();
@@ -50,6 +54,13 @@ public class previousmatches extends AppCompatActivity {
 
         ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,info_match);
         myliste.setAdapter(adapter);
+    }
+
+    public void myClickGoBack(View view){
+        if (view.getId()== R.id.GoBack){
+            Intent intent= new Intent (this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
 
