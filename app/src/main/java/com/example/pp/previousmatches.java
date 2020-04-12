@@ -19,8 +19,6 @@ import java.util.ArrayList;
 
 public class previousmatches extends AppCompatActivity {
 
-
-
     DatabaseHelper mDataBaseHelper;
 
     private ListView myliste;
