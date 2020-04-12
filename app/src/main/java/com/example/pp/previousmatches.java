@@ -44,7 +44,7 @@ public class previousmatches extends AppCompatActivity {
         info_match = new ArrayList<>();
         Cursor data = mDataBaseHelper.getData();
         while (data.moveToNext()){
-            info_match.add(data.getString(1) + ":" + data.getInt(3) + " VS " + data.getString(2) + ":" + data.getInt(4));
+            info_match.add("SCORE : " + data.getString(1) + " : " + data.getInt(3) + " VS " + data.getString(2) + " : " + data.getInt(4) + " the WINNER is " + data.getString(14) );
         }
 
 

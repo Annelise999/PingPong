@@ -88,7 +88,7 @@ public class Match implements Serializable {
         this.joueur_service= joueur_service;
     }
 
-    public Match(String joueur1, String joueur2, int pts_j1, int pts_j2,  int balle, int aces_j1, int aces_j2, int fautes_j1, int fautes_j2, int let_j1, int let_j2, int manches_j1, int manches_j2) {
+    public Match(String joueur1, String joueur2, int pts_j1, int pts_j2,  int balle, int aces_j1, int aces_j2, int fautes_j1, int fautes_j2, int let_j1, int let_j2, int manches_j1, int manches_j2, String gagnant) {
         super();
         id= 0;
         this.joueur1 = joueur1;
@@ -104,6 +104,7 @@ public class Match implements Serializable {
         this.manches_j2= manches_j2;
         this.pts_j1= pts_j1;
         this.pts_j2= pts_j2;
+        this.gagnant= gagnant;
         pts_manche1_j1=0;
         pts_manche1_j2=0;
         pts_manche2_j1=0;
@@ -112,7 +113,7 @@ public class Match implements Serializable {
         pts_manche3_j2=0;
         joueur_service=1;
         current_manche = 1;
-        gagnant= "nom du gagnant";
+
     }
 
     public void changementServeur()
