@@ -465,6 +465,20 @@
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/lat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/lng"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="TextView" />
         </LinearLayout>
 
     </LinearLayout>
