@@ -4,6 +4,8 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -29,6 +31,9 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.util.List;
+import java.util.Locale;
+
 public class Score extends AppCompatActivity {
 
 
@@ -44,6 +49,12 @@ public class Score extends AppCompatActivity {
     Match current;
     DatabaseHelper mDataBaseHelper;
     FusedLocationProviderClient mFusedLocationClient;
+    Geocoder geocoder;
+    List<Address> addresses;
+    String address;
+    boolean toggling;
+
+
 
 
     @Override
@@ -85,8 +96,6 @@ public class Score extends AppCompatActivity {
         score_j1_m3.setText(String.valueOf(0));
         score_j2_m3.setText(String.valueOf(0));
 
-
-
         //Button
         end = findViewById(R.id.end_button);
         ace = findViewById(R.id.button_ace);
@@ -108,7 +117,61 @@ public class Score extends AppCompatActivity {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
 
+        geocoder = new Geocoder(this, Locale.getDefault());
+
+
     }
+
+    public void myClickLocalisation (View view) {
+
+        if(view.getId() == R.id.local_button){
+            if (checkPermissions()) {
+                if (isLocationEnabled()) {
+                    mFusedLocationClient.getLastLocation().addOnCompleteListener(
+                            new OnCompleteListener<Location>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Location> task) {
+                                    Location location = task.getResult();
+                                    if (location == null) {
+                                        toastMessage("localisation is null");
+                                    } else {
+                                        try {
+                                            addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+                                        }
+                                        catch (Exception e)
+                                        {
+                                            toastMessage("probleme" + e);
+                                        }
+                                        address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+
+                                        if(toggling == false) {
+                                            lat.setText(address);
+                                            lng.setText("");
+                                            toggling= true;
+                                        }
+                                        else
+                                        {
+                                            lat.setText(location.getLatitude()+"");
+                                            lng.setText(location.getLongitude()+"");
+                                            toggling = false;
+                                        }
+
+                                    }
+                                }
+                            }
+                    );
+                } else {
+                    Toast.makeText(this, "Turn on location", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    startActivity(intent);
+                }
+            } else {
+                requestPermissions();
+            }
+        }
+
+    }
+
 
 
     private boolean checkPermissions() {
@@ -156,8 +219,14 @@ public class Score extends AppCompatActivity {
                                 if (location == null) {
                                     toastMessage("localisation is null");
                                 } else {
+
+
                                     lat.setText(location.getLatitude()+"");
                                     lng.setText(location.getLongitude()+"");
+                                    current.setLat(location.getLatitude());
+                                    current.setLng(location.getLongitude());
+
+
                                 }
                             }
                         }
@@ -186,8 +255,6 @@ public class Score extends AppCompatActivity {
     public void toastMessage (String message ){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -226,8 +293,6 @@ public class Score extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
-
 
     public void myClickHandlerMatch (View view)
     {

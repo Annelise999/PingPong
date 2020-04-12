@@ -30,6 +30,7 @@ public class recapmatch extends AppCompatActivity {
 
     private Handler handler;
     TextView nom_gagnant, temps_match, afficher_joueur1, afficher_joueur2, points_j1, points_j2, aces_j1, aces_j2, let_j1, let_j2, manches_j1, manches_j2, fautes_j1, fautes_j2;
+    TextView lat, lng;
     Button retour ;
     ImageButton local, gallery;
     Match current;
@@ -81,7 +82,10 @@ public class recapmatch extends AppCompatActivity {
         let_j2= findViewById(R.id.let_joueur2);
         let_j2.setText(String.valueOf(current.getLet_j2()));
 
-
+        lat= findViewById(R.id.lat);
+        lat.setText(String.valueOf(current.getLat()));
+        lng = findViewById(R.id.lng);
+        lng.setText(String.valueOf(current.getLng()));
 
         //Button
         retour = findViewById(R.id.return_button);
@@ -103,7 +107,7 @@ public class recapmatch extends AppCompatActivity {
         Cursor data = mDataBaseHelper.getData();
         while (data.moveToNext()){
 
-            listData.add(new Match(data.getString(1), data.getString(2), data.getInt(3), data.getInt(4), data.getInt(5), data.getInt(6), data.getInt(7), data.getInt(8), data.getInt(9), data.getInt(10), data.getInt(11), data.getInt(12), data.getInt(13), data.getString(14)));
+            listData.add(new Match(data.getString(1), data.getString(2), data.getInt(3), data.getInt(4), data.getInt(5), data.getInt(6), data.getInt(7), data.getInt(8), data.getInt(9), data.getInt(10), data.getInt(11), data.getInt(12), data.getInt(13), data.getString(14), data.getDouble(15), data.getDouble(16)));
 
         }
 
@@ -128,6 +132,8 @@ public class recapmatch extends AppCompatActivity {
         fautes_j2.setText(String.valueOf(listData.get(listData.size()-i).getFautes_j2()));
         let_j1.setText(String.valueOf(listData.get(listData.size()-i).getLet_j1()));
         let_j2.setText(String.valueOf(listData.get(listData.size()-i).getLet_j2()));
+        lat.setText(String.valueOf(listData.get(listData.size()-i).getLat()));
+        lng.setText(String.valueOf(listData.get(listData.size()-i).getLng()));
 
     }
 

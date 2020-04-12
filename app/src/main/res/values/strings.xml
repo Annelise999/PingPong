@@ -49,5 +49,8 @@
     <string name="sert">a le service</string>
     <string name="enter">Entrez le nom des deux joueurs :</string>
     <string name="returnmatch">RETOUR MATCH</string>
+    <string name="lat">lat</string>
+    <string name="lng">long :</string>
+    <string name="latitude">lat :</string>
 </resources>
 

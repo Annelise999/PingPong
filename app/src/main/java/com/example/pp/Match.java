@@ -18,9 +18,7 @@ public class Match implements Serializable {
     private int let_j2;
     private int manches_j1;
     private int manches_j2;
-
     private int current_manche;
-
     private int pts_j1;
     private int pts_j2;
     private int pts_manche1_j1;
@@ -29,8 +27,8 @@ public class Match implements Serializable {
     private int pts_manche2_j2;
     private int pts_manche3_j1;
     private int pts_manche3_j2;
-    private float lat;
-    private float lng;
+    private double lat;
+    private double lng;
 
     public Match(){
         super();
@@ -82,13 +80,14 @@ public class Match implements Serializable {
         pts_j1=0;
         pts_j2=0;
         gagnant = "";
-
+        lat = 0.0;
+        lng= 0.0;
         this.joueur1 = joueur1;
         this.joueur2 = joueur2;
         this.joueur_service= joueur_service;
     }
 
-    public Match(String joueur1, String joueur2, int pts_j1, int pts_j2,  int balle, int aces_j1, int aces_j2, int fautes_j1, int fautes_j2, int let_j1, int let_j2, int manches_j1, int manches_j2, String gagnant) {
+    public Match(String joueur1, String joueur2, int pts_j1, int pts_j2,  int balle, int aces_j1, int aces_j2, int fautes_j1, int fautes_j2, int let_j1, int let_j2, int manches_j1, int manches_j2, String gagnant, double lat, double lng) {
         super();
         id= 0;
         this.joueur1 = joueur1;
@@ -105,6 +104,8 @@ public class Match implements Serializable {
         this.pts_j1= pts_j1;
         this.pts_j2= pts_j2;
         this.gagnant= gagnant;
+        this.lat = lat;
+        this.lng= lng;
         pts_manche1_j1=0;
         pts_manche1_j2=0;
         pts_manche2_j1=0;
@@ -378,19 +379,19 @@ public class Match implements Serializable {
         this.pts_manche3_j2 += 1;
     }
 
-    public float getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(float lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public float getLng() {
+    public double getLng() {
         return lng;
     }
 
-    public void setLng(float lng) {
+    public void setLng(double lng) {
         this.lng = lng;
     }
 
