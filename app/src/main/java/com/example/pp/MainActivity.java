@@ -1,6 +1,9 @@
 package com.example.pp;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,38 +12,72 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
-
-
-
-
-
 
     private Handler handler;
     EditText entrer_joueur1, entrer_joueur2;
-    TextView afficher_joueur1, afficher_joueur2;
+    TextView afficher_joueur1, afficher_joueur2, entrer_joueurs;
     CheckBox servicej1, servicej2;
     int service_joueur;
-
-
+    Switch Langue;
+    String langue_choose, langue_current;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_choixjoueur);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Langue = findViewById(R.id.switch1);
+        langue_current = (String) getIntent().getSerializableExtra("Langue");
 
+
+        TestLangue();
+
+        Langue.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    setAppLocale("en");
+                    Intent intent = getIntent();
+                    langue_choose= "en";
+                    intent.putExtra("Langue", langue_choose);
+                    finish();
+                    startActivity(intent);
+
+
+                } else {
+                    setAppLocale("fr");
+                    Intent intent = getIntent();
+                    langue_choose= "fr";
+                    intent.putExtra("Langue", langue_choose);
+                    finish();
+                    startActivity(intent);
+
+
+
+                }
+            }
+        });
+
+        entrer_joueurs= findViewById(R.id.entrer_joueurs);
+        entrer_joueurs.setText(R.string.enter);
         entrer_joueur1 = findViewById(R.id.entrer_joueur1);
+        entrer_joueur2 = findViewById(R.id.entrer_joueur2);
         entrer_joueur1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -57,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        entrer_joueur2 = findViewById(R.id.entrer_joueur2);
         entrer_joueur2.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -77,17 +113,34 @@ public class MainActivity extends AppCompatActivity {
         afficher_joueur1 = findViewById(R.id.afficher_joueur1);
         afficher_joueur2 = findViewById(R.id.afficher_joueur2);
         servicej1 = findViewById(R.id.service_j1);
-        servicej1.setText("a le service");
         servicej2 = findViewById(R.id.service_j2);
-        servicej2.setText("a le service");
         handler = new Handler();
-
 
 
     }
 
+    public void TestLangue(){
+        if("en".equals(langue_current))
+        {
+            Langue.setChecked(true);
+        }
+    }
 
+    private void setAppLocale(String localeCode)
+    {
+        Resources res= getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            conf.setLocale(new Locale(localeCode.toLowerCase()));
+        }
+        else
+        {
+            conf.locale = new Locale(localeCode.toLowerCase());
+        }
+        res.updateConfiguration(conf,dm);
 
+    }
 
 
     public void toastMessage (String message ){

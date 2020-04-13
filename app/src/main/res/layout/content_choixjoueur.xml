@@ -16,8 +16,21 @@
         app:layout_constrainedHeight="false"
         app:layout_constrainedWidth="false">
 
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#33A8A8A8"
+            android:checked="false"
+            android:gravity="center|right|end"
+            android:text="@string/langue"
+            android:textAllCaps="false"
+            android:textOff="@string/English"
+            android:textOn="@string/francais"
+            android:typeface="monospace" />
+
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/entrer_joueurs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
