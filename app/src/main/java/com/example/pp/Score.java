@@ -4,24 +4,32 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
+import android.os.Environment;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.content.Intent;
 import android.widget.Toast;
@@ -31,6 +39,10 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -53,6 +65,10 @@ public class Score extends AppCompatActivity {
     List<Address> addresses;
     String address;
     boolean toggling;
+    private String photoPath = null;
+    private static final int RETOUR_PRENDRE_PHOTO = 1;
+    private Bitmap image;
+    private ImageView imgAffichePhoto;
 
 
 
@@ -64,11 +80,13 @@ public class Score extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Database
         mDataBaseHelper= new DatabaseHelper(this);
+
 
        locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 
-
+        //MAtch
         current = (Match) getIntent().getSerializableExtra("Match");
 
         //textview:
@@ -116,8 +134,51 @@ public class Score extends AppCompatActivity {
         lng = findViewById(R.id.lng);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
-
         geocoder = new Geocoder(this, Locale.getDefault());
+
+        //Photo
+        CheckPhotoPermission();
+        imgAffichePhoto= findViewById(R.id.imgAffichePhoto);
+
+
+    }
+
+    private void CheckPhotoPermission(){
+        if (ContextCompat.checkSelfPermission(Score.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_DENIED)
+        {
+            ActivityCompat.requestPermissions(Score.this, new String[] {Manifest.permission.CAMERA}, 100);
+        }
+    }
+
+    public void myClickFoto(View view)
+    {
+        if (view.getId()== R.id.gallery_button)
+        {
+            prendreUnePhoto();
+        }
+    }
+
+
+    private void prendreUnePhoto(){
+        //cree un intent pour ouvrir une fenêtre pour prendre la photo
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, 100);
+
+    }
+
+
+
+    @Override
+    protected void onActivityResult(int requestcode, int resultCode, Intent data){
+        super.onActivityResult(requestcode, resultCode, data);
+        // vérifie le bon code de retour et l'état du retour ok
+        if (requestcode==100 && resultCode==RESULT_OK){
+            //récupérer l'image
+            image = (Bitmap) data.getExtras().get("data");
+            // afficher l'image
+           imgAffichePhoto.setImageBitmap(image);
+
+        }
 
 
     }
@@ -171,8 +232,6 @@ public class Score extends AppCompatActivity {
         }
 
     }
-
-
 
     private boolean checkPermissions() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
