@@ -80,6 +80,18 @@ public class Score extends AppCompatActivity {
 
         handler = new Handler();
 
+        this.gallery = (ImageButton) findViewById(R.id.gallery_button);
+
+        gallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent otherActivity = new Intent(getApplicationContext(), AppareilPhoto.class);
+                startActivity(otherActivity);
+                finish();
+
+
+    }
+    });
     }
 
 
