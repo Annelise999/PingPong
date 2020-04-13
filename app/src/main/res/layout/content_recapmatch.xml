@@ -507,6 +507,7 @@
                 android:layout_margin="10px"
                 android:layout_weight="1"
                 android:background="#CCCAA882"
+                android:onClick="goGallery"
                 android:tint="#070000"
                 app:srcCompat="@android:drawable/ic_menu_gallery" />
 

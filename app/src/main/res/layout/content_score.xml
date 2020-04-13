@@ -335,11 +335,6 @@
                     android:textStyle="bold"
                     android:typeface="monospace" />
 
-                <ImageView
-                    android:id="@+id/imgAffichePhoto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_launcher" />
 
             </LinearLayout>
 

@@ -39,6 +39,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -65,10 +66,9 @@ public class Score extends AppCompatActivity {
     List<Address> addresses;
     String address;
     boolean toggling;
-    private String photoPath = null;
-    private static final int RETOUR_PRENDRE_PHOTO = 1;
     private Bitmap image;
-    private ImageView imgAffichePhoto;
+    ByteArrayOutputStream stream;
+    byte[] byteArray;
 
 
 
@@ -138,8 +138,7 @@ public class Score extends AppCompatActivity {
 
         //Photo
         CheckPhotoPermission();
-        imgAffichePhoto= findViewById(R.id.imgAffichePhoto);
-
+       
 
     }
 
@@ -158,15 +157,12 @@ public class Score extends AppCompatActivity {
         }
     }
 
-
     private void prendreUnePhoto(){
         //cree un intent pour ouvrir une fenêtre pour prendre la photo
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, 100);
 
     }
-
-
 
     @Override
     protected void onActivityResult(int requestcode, int resultCode, Intent data){
@@ -175,8 +171,13 @@ public class Score extends AppCompatActivity {
         if (requestcode==100 && resultCode==RESULT_OK){
             //récupérer l'image
             image = (Bitmap) data.getExtras().get("data");
-            // afficher l'image
-           imgAffichePhoto.setImageBitmap(image);
+
+            stream = new ByteArrayOutputStream();
+            image.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byteArray = stream.toByteArray();
+
+
+
 
         }
 
@@ -349,6 +350,7 @@ public class Score extends AppCompatActivity {
         if (view.getId() == R.id.end_button) {
             Intent intent = new Intent(this, recapmatch.class);
             intent.putExtra("Match", current);
+            intent.putExtra("image", byteArray);
             startActivity(intent);
         }
     }

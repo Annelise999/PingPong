@@ -2,6 +2,8 @@ package com.example.pp;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -18,6 +20,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -36,6 +39,9 @@ public class recapmatch extends AppCompatActivity {
     Match current;
     DatabaseHelper mDataBaseHelper;
 
+    ImageView image_gallery;
+    byte[] byteArray;
+
 
     private ArrayList<Match> listData;
 
@@ -48,8 +54,7 @@ public class recapmatch extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         current = (Match) getIntent().getSerializableExtra("Match");
-
-
+        byteArray = getIntent().getByteArrayExtra("image");
 
         //textview:
         nom_gagnant = findViewById(R.id.nom_gagnant);
@@ -177,6 +182,17 @@ public class recapmatch extends AppCompatActivity {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
+    }
+
+    public void goGallery(View view)
+    {
+        if (view.getId() == R.id.gallery_button) {
+            Intent intent = new Intent(this, Gallery.class);
+            intent.putExtra("image", byteArray);
+            startActivity(intent);
+
+        }
+
     }
 
 

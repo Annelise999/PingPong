@@ -55,5 +55,6 @@
     <string name="langue">Langue </string>
     <string name="francais">Français</string>
     <string name="English">English</string>
+    <string name="title_activity_gallery">Gallery</string>
 </resources>
 
