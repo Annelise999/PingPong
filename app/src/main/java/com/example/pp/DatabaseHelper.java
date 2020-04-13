@@ -27,16 +27,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String WINNER = "winner";
     public static final String LAT = "lat";
     public static final String LNG = "lng";
+    public static final String KEY_IMAGE = "image";
 
 
 
     public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME +
-            " ( id INTEGER PRIMARY KEY AUTOINCREMENT, joueur1 TEXT, joueur2 TEXT, points_j1 INTEGER, points_j2 INTEGER, balle INTEGER, aces_j1 INTEGER, aces_j2 INTEGER, fautes_j1 INTEGER, fautes_j2 INTEGER, let_j1 INTEGER, let_j2 INTEGER, manches_j1 INTEGER, manches_j2 INTEGER, winner TEXT, lat REAL, lng REAL)";
+            " ( id INTEGER PRIMARY KEY AUTOINCREMENT, joueur1 TEXT, joueur2 TEXT, points_j1 INTEGER, points_j2 INTEGER, balle INTEGER, aces_j1 INTEGER, aces_j2 INTEGER, fautes_j1 INTEGER, fautes_j2 INTEGER, let_j1 INTEGER, let_j2 INTEGER, manches_j1 INTEGER, manches_j2 INTEGER, winner TEXT, lat REAL, lng REAL, image BLOB)";
 
 
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 5);
+        super(context, DATABASE_NAME, null, 6);
     }
 
     @Override
@@ -77,6 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(WINNER, m.getGagnant());
         contentValues.put(LAT, m.getLat());
         contentValues.put(LNG, m.getLng());
+        contentValues.put(KEY_IMAGE, m.getFotos());
 
         long result = db.insert (TABLE_NAME, null, contentValues);
 

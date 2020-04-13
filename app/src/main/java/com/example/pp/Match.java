@@ -29,6 +29,7 @@ public class Match implements Serializable {
     private int pts_manche3_j2;
     private double lat;
     private double lng;
+    private byte[] fotos;
 
     public Match(){
         super();
@@ -55,9 +56,8 @@ public class Match implements Serializable {
         pts_manche3_j2=0;
         pts_j1=0;
         pts_j2=0;
+        fotos = null;
     }
-
-
 
     public Match(String joueur1, String joueur2, int joueur_service){
         super();
@@ -82,12 +82,13 @@ public class Match implements Serializable {
         gagnant = "";
         lat = 0.0;
         lng= 0.0;
+        fotos= null;
         this.joueur1 = joueur1;
         this.joueur2 = joueur2;
         this.joueur_service= joueur_service;
     }
 
-    public Match(String joueur1, String joueur2, int pts_j1, int pts_j2,  int balle, int aces_j1, int aces_j2, int fautes_j1, int fautes_j2, int let_j1, int let_j2, int manches_j1, int manches_j2, String gagnant, double lat, double lng) {
+    public Match(String joueur1, String joueur2, int pts_j1, int pts_j2,  int balle, int aces_j1, int aces_j2, int fautes_j1, int fautes_j2, int let_j1, int let_j2, int manches_j1, int manches_j2, String gagnant, double lat, double lng, byte[] fotos) {
         super();
         id= 0;
         this.joueur1 = joueur1;
@@ -106,6 +107,7 @@ public class Match implements Serializable {
         this.gagnant= gagnant;
         this.lat = lat;
         this.lng= lng;
+        this.fotos= fotos;
         pts_manche1_j1=0;
         pts_manche1_j2=0;
         pts_manche2_j1=0;
@@ -425,6 +427,14 @@ public class Match implements Serializable {
 
     public void setGagnant(String gagnant) {
         this.gagnant = gagnant;
+    }
+
+    public byte[] getFotos() {
+        return fotos;
+    }
+
+    public void setFotos(byte[] fotos) {
+        this.fotos = fotos;
     }
 
 }

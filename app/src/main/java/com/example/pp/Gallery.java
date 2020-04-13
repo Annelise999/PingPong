@@ -21,6 +21,7 @@ public class Gallery extends AppCompatActivity {
     private ImageView photo;
     byte[] byteArray;
     Bitmap laphoto;
+    Match current;
 
 
 
@@ -33,8 +34,9 @@ public class Gallery extends AppCompatActivity {
 
 
         retour= findViewById(R.id.GoBack);
-        byteArray = getIntent().getByteArrayExtra("image");
 
+        current = (Match) getIntent().getSerializableExtra("Match");
+        byteArray= current.getFotos();
         laphoto = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
         //ImageView

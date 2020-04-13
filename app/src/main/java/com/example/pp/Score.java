@@ -138,7 +138,7 @@ public class Score extends AppCompatActivity {
 
         //Photo
         CheckPhotoPermission();
-       
+
 
     }
 
@@ -175,8 +175,7 @@ public class Score extends AppCompatActivity {
             stream = new ByteArrayOutputStream();
             image.compress(Bitmap.CompressFormat.PNG, 100, stream);
             byteArray = stream.toByteArray();
-
-
+            current.setFotos(byteArray);
 
 
         }

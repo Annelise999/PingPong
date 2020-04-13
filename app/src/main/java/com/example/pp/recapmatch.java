@@ -39,10 +39,6 @@ public class recapmatch extends AppCompatActivity {
     Match current;
     DatabaseHelper mDataBaseHelper;
 
-    ImageView image_gallery;
-    byte[] byteArray;
-
-
     private ArrayList<Match> listData;
 
 
@@ -54,7 +50,7 @@ public class recapmatch extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         current = (Match) getIntent().getSerializableExtra("Match");
-        byteArray = getIntent().getByteArrayExtra("image");
+
 
         //textview:
         nom_gagnant = findViewById(R.id.nom_gagnant);
@@ -112,11 +108,9 @@ public class recapmatch extends AppCompatActivity {
         Cursor data = mDataBaseHelper.getData();
         while (data.moveToNext()){
 
-            listData.add(new Match(data.getString(1), data.getString(2), data.getInt(3), data.getInt(4), data.getInt(5), data.getInt(6), data.getInt(7), data.getInt(8), data.getInt(9), data.getInt(10), data.getInt(11), data.getInt(12), data.getInt(13), data.getString(14), data.getDouble(15), data.getDouble(16)));
+            listData.add(new Match(data.getString(1), data.getString(2), data.getInt(3), data.getInt(4), data.getInt(5), data.getInt(6), data.getInt(7), data.getInt(8), data.getInt(9), data.getInt(10), data.getInt(11), data.getInt(12), data.getInt(13), data.getString(14), data.getDouble(15), data.getDouble(16), data.getBlob(17)));
 
         }
-
-
 
     }
 
@@ -188,7 +182,7 @@ public class recapmatch extends AppCompatActivity {
     {
         if (view.getId() == R.id.gallery_button) {
             Intent intent = new Intent(this, Gallery.class);
-            intent.putExtra("image", byteArray);
+            intent.putExtra("Match", current);
             startActivity(intent);
 
         }
